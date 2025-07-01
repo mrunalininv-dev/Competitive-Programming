@@ -25,22 +25,31 @@ Sample Output 1:
 
 using namespace std;
 long staircase(int n){
+
+if(n==0) return 1;
+if(n==1) return 1;
+if(n==2) return 2;
+if(n==3) return 4;
+
+
 	long* arr = new long[n+1];
-    arr[0] = 0;
+ arr[0] = 1;
 	arr[1] = 1;
 	arr[2] = 2;
 	arr[3] = 4;
 
-	for (int i = 4; i < n+1; ++i)
+	for (int i = 4; i <= n; ++i)
 	{
 		arr[i] = arr[i-1] + arr[i-2] + arr[i-3];
-	}
 
-	return arr[n];
+	}
+long result=arr[n];
+delete[] arr;
+return result;
 
 }
 
-int main( int argc , char ** argv )
+int main()
 {
 	ios_base::sync_with_stdio(false) ; 
 	cin.tie(NULL) ; 
